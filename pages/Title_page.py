@@ -35,7 +35,7 @@ The app is designed to serve as an initial phases of data analysis, providing us
   - **Silhouette Score:** Evaluate clustering quality with this metric.
 
 - **AI-Powered Summarization:**  
-  After clustering, a dedicated Data Scientist AI-Agent, powered by Groq API (utilizing the Llama 38B LLM), will analyze cluster profiles and silhouette scores and interprets the key insights, presenting the findings in a clear and accessible manner for the user. The app caches LLM responses to avoid redundant API calls.
+  After clustering, a dedicated Data Scientist AI-Agent, powered by Groq API (utilizing the Llama 3 8B LLM), will analyze cluster profiles and silhouette scores and interprets the key insights, presenting the findings in a clear and accessible manner for the user. The app caches LLM responses to avoid redundant API calls.
 
 ---
 
