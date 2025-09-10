@@ -349,7 +349,7 @@ Make sure to explain the significance of the Silhouette Score and how it relates
         @st.cache_data(show_spinner="Loading summary...", persist=True)
         def get_llm_summary(prompt):
             response = client.chat.completions.create(
-                model="llama3-8b-8192",
+                model="llama3-70b-8192",
                 messages=[
                     {"role": "system", "content": "You are a helpful data science assistant."},
                     {"role": "user", "content": prompt}
