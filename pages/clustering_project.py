@@ -119,7 +119,7 @@ if uploaded_file is not None:
                 default=[numeric_cols1[0]] if numeric_cols1 else [],
                 key="hist_cols1"
             )
-        # No plot here, just controls
+        
 
     # Visualization 2 controls
     with col2:
@@ -149,9 +149,9 @@ if uploaded_file is not None:
                 default=[numeric_cols2[0]] if numeric_cols2 else [],
                 key="hist_cols2"
             )
-        # No plot here, just controls
+        
 
-    # Show both graphs together
+    #Show visualizations
     show_graphs = st.button("Show Graphs")
 
     if show_graphs:
@@ -242,7 +242,7 @@ if uploaded_file is not None:
         st.info("Ensure your data is scaled before clustering for best results.")
         clustering_algorithm = st.selectbox(
             "Select Clustering Algorithm:",
-            ("K-Means",)  # You can add more algorithms later
+            ("K-Means",)  
         )
 
         if clustering_algorithm == "K-Means":
@@ -295,7 +295,7 @@ if uploaded_file is not None:
                     df['cluster_label'] = kmeans.fit_predict(df[clustering_vars])
                     st.success(f"K-Means clustering performed with {n_clusters} clusters.")
 
-                    # Visualize Clusters (PCA for 2D visualization)
+                    # PCA for 2D visualization
                     st.subheader("Cluster Visualization (2D)")
                     if len(clustering_vars) >= 2:
                         pca = PCA(n_components=2)
@@ -329,11 +329,11 @@ if uploaded_file is not None:
                         except Exception as e:
                             st.error(f"Could not calculate Silhouette Score: {e}. This might happen if all points are in one cluster or other issues.")
 
-                    # Store results in session_state for later summarization
+                    # Summerization
                     st.session_state['cluster_profiles'] = cluster_profiles
                     st.session_state['score'] = score
 
-    # --- Place this OUTSIDE the clustering button block ---
+   
     if 'cluster_profiles' in st.session_state and 'score' in st.session_state and st.session_state['score'] is not None:
         summary_prompt = f"""
 You are a data science assistant. Summarize the following cluster analysis results for a non-technical audience:
